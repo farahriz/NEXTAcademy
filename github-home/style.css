@@ -1,0 +1,201 @@
+body {
+	font-family: "Karla" , sans-serif;
+	color: black;
+	margin: 0 0;
+}
+
+
+header {
+	border: 1px dashed red;
+	font-size: 2em;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+}
+
+article {
+	margin: 50px 0;
+
+}
+
+section {
+	border: 2px solid orange;
+	margin: 2% 0;
+}
+
+nav {
+	border: 5px solid red;
+	box-sizing: border-box;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	height: 50px;
+	margin-top: auto;
+	z-index: 2;
+}
+
+.gradfill {
+	background: #a8ff78;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+nav ul {
+  padding: 0px;
+  margin: 0px;
+  display: inline;
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 8px;
+}
+
+h1 {
+	color: white;
+	margin: 0 0;
+	vertical-align: middle;
+	display: inline;
+
+}
+
+.fa {
+  padding: 1px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  margin: auto 10px;
+  float: right;
+}
+
+.fa-github {
+	color: white;
+	background-color: black;
+}
+
+.fa-linkedin {
+	color: white;
+	background: #007bb5;
+}
+
+.fa-twitter {
+	color: white;
+	background: #3B5998;
+}
+
+.fa-instagram {
+	color: white;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+ul li {
+	display:  inline-block;
+}
+
+.hide {
+	display: none;
+}
+
+.social {
+	/*border: 2px dashed blue;*/
+	display: flex;
+	flex-direction: wrap row;
+	justify-content: space-around;
+	max-width: 500px;
+	width: 100%
+	margin: 0 a`uto;
+	height: 80px;
+}
+
+section div{
+	margin: 0 auto;
+}
+
+.splashword {
+	color: teal;
+	font-size: 2em;
+}
+
+#back {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	/*border: 1px solid black;*/
+	height: 30px;
+	background-color: yellow;
+	width: 100%;
+}
+
+
+/*PROJECT GALLERY FORMATTING*/
+/* Mobile behaviour (default)*/
+	.overlay-container {
+		width: 100%;
+		box-sizing: border-box;
+		border: 1px solid black;
+		display: flex;
+		flex-wrap: wrap;
+		background: red;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.gallery {
+		display: block;
+	}
+
+/*Desktop Behavior*/
+@media(min-width: 768px){
+
+	.gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: space-around;
+	}
+
+	.overlay-container {
+		width: 33.33%;
+		box-sizing: border-box;
+		border: 1px solid black;
+		display: flex;
+		flex-wrap: wrap;
+		background: red;
+		overflow: hidden;
+		position: relative;
+	}
+}
+
+/* For image overlays and image-resizing in project gallery*/
+.shrinkfit {
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.overlay-image {
+	width: 100%
+	background: url(tennis.png);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.overlay-text {
+	position: absolute;
+	top:0;
+	left: 0;
+	font-size: 2em;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(100,100,100,0.5);
+}
