@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Random (Limited) Quote Generator</h1>
+	
+
+
+
+
+	<script>
+	const quotes = [
+		"It hurts because it's youth.",
+		"Businessmen should stay out of politics.",
+		"If you like pineapple on pizza, that's fine.",
+		"You're a baby if you get offended when people call your graphic novels 'comic books'. They're comic books. The's fine. Graphic novels are a subset of comics.",
+		"It's fine to like things made for children. Just stop being offended when people remind you that the things you like are, in fact, made for children. You are just a fun bonus that the creators can use to extract revenue.",
+		"Double reed life > single reed life"
+	];
+
+	const random = Math.random()
+	const randomIndex = Math.floor(random*quotes.length)
+	document.write(quotes[randomIndex]);
+	</script>
+
+</body>
+</html>
+
+
