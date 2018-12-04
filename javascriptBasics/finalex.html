@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Final Section's Practice Work</h1>
+	
+	<script>
+	// Practice 1
+	// Print an Array of you favourite singers	
+	const favSingers = [
+		"Beck",
+		"Hokago Teatime",
+		"Polkadot Stingray",
+		"Girls' Generation",
+		"Postmodern Jukebox"
+	];
+
+	function printCountdown(array){
+		// technically we haven't learned for loops yet but I refuse to write this out mannually
+		for (var i = array.length - 1; i >= 0; i--) {
+			console.log("My #"+ (i+1) + " favourite singer is " + array[i]);
+		}
+	};
+	printCountdown(favSingers);
+
+
+
+	// Practice 2
+	// Write a pickRandomFromArray function that takes in three parameters, myArray, start, and end. It returns a random item in the myArray whose position is somewhere between start and end, inclusive.
+
+	function pickRandom(array, start, end){
+		let random = Math.random();
+		let randomIndex = Math.floor(random*end)+start;
+		document.write(array[randomIndex]);
+	};
+
+	pickRandom(favSingers, 0, 4);
+
+	</script>
+
+</body>
+</html>
+
+
