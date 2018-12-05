@@ -4,7 +4,7 @@
 	<title>Data Type: Object - Excercises</title>
 </head>
 <body>
-
+	<h1>Object Excercises</h1>
 	<script type="text/javascript">
 	// Using functions as properties
 		const personOne = {
@@ -31,48 +31,81 @@
 		  location: "New York City",
 		  travelPartners: ["Mum", "Dad", "Sis"],
 		  numDays: 14,
-		  places: ["Time Square", "Brooklyn Botanical Gardens", "Central Park"],
+		  landmarks: ["Time Square", "Brooklyn Botanical Gardens", "Central Park"],
 		};
 
 		const trip1 = {
 		  location: "Chicago",
 		  travelPartners: ["Mum", "Dad", "Sis"],
 		  numDays: 7,
-		  places: ["Former Oprah Warehouse", "Deep Dish Pizza Place", "That Thing Everyone Hates"],
+		  landmarks: ["Former Oprah Warehouse", "Deep Dish Pizza Place", "That Thing Everyone Hates", "Garrets Popcorn", "Does that Anish Kapoor Sculture live here?"],
 		};
 
 		const trip2 = {
-		  location: "Machu Pichu",
+		  location: "Wilderness",
 		  travelPartners: ["BFF", "BF", "Bro"],
 		  numDays: 21,
-		  places: ["Mountain", "Hill", "River", "Do it for the 'gram"],
+		  landmarks: ["Mountain", "Hill", "River", "Graveyard"],
 		}
 
 		function showTrip(trip){
 			console.log('My Dream Trip: ' + trip.location);
 
 			// Travel Partners
-			console.log('')
-			// console.log("with" + );
-
+			function line2(array){
+				let string = '';
+				for (let i = 0; i < array.length-1; i++) {
+					string = string + array[i] + ", ";
+				}
+				string = string + "and " + array[array.length-1];	
+				finalString = "with " + string + " for " + trip.numDays + " days."
+				console.log(finalString);
+				}
+			line2(trip.travelPartners);
+			console.log('');
 			// Places to Visit
-			// console.log(" Place to Visit:");
-			// console.log("* "+)
-
-		}
-
-		function listMembers(array){
-			let string = '';
-			for (let i = 0; i < array.length-1; i++) {
-				string = string + array[i] + ", ";
+			console.log(`${trip.landmarks.length} places to visit:`);
+			for (i=0; i<trip.landmarks.length; i++) {
+				console.log('* '+trip.landmarks[i]);
 			}
-			string = string + "and " + array[array.length-1];		
-			console.log(string);
+
 		}
 
-		
-		//Practice 2: reading list 
+		showTrip(trip0);
+		showTrip(trip1);
+		showTrip(trip2);
 
+
+		//Practice 2: reading list 
+		let books = [
+		{
+			title: 'Chamber of Secrets',
+			author: 'J K Rowling',
+			alreadyRead: false,
+		},
+		{
+			title: 'Divergent',
+			author: 'Veronica Roth',
+			alreadyRead: false,
+		},
+		{
+			title: 'The Iliad',
+			author: 'Home',
+			alreadyRead: true,
+		},
+		{
+			title: 'The Life Changing Magic of Tidying Up',
+			author: 'Marie Kondo',
+			alreadyRead: true,
+		},
+		]
+
+
+
+		// Part 1
+
+
+		// Part 2
 
 	</script>
 
