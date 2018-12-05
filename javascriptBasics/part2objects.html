@@ -49,63 +49,84 @@
 		}
 
 		function showTrip(trip){
-			console.log('My Dream Trip: ' + trip.location);
+			// Line 1 
+				console.log('My Dream Trip: ' + trip.location);
 
-			// Travel Partners
-			function line2(array){
-				let string = '';
-				for (let i = 0; i < array.length-1; i++) {
-					string = string + array[i] + ", ";
-				}
-				string = string + "and " + array[array.length-1];	
-				finalString = "with " + string + " for " + trip.numDays + " days."
-				console.log(finalString);
-				}
-			line2(trip.travelPartners);
+			// Block of code dealing with line2		
+					function line2(array){
+						// Assembles together a list of people you're travelling with, inclusive of Oxford comma
+						let string = '';
+						for (let i = 0; i < array.length-1; i++) {
+							string = string + array[i] + ", ";
+						}
+						string = string + "and " + array[array.length-1];
+
+						// Writes out the full line 2 
+						finalString = "with " + string + " for " + trip.numDays + " days."
+						console.log(finalString);
+						} 
+				// call function to have line 2 appear in console
+				line2(trip.travelPartners);
+				
+			// Makes a line break for space and readability
 			console.log('');
+
 			// Places to Visit
 			console.log(`${trip.landmarks.length} places to visit:`);
 			for (i=0; i<trip.landmarks.length; i++) {
 				console.log('* '+trip.landmarks[i]);
 			}
 
-		}
-
-		showTrip(trip0);
-		showTrip(trip1);
-		showTrip(trip2);
-
+			}
 
 		//Practice 2: reading list 
-		let books = [
-		{
-			title: 'Chamber of Secrets',
-			author: 'J K Rowling',
-			alreadyRead: false,
-		},
-		{
-			title: 'Divergent',
-			author: 'Veronica Roth',
-			alreadyRead: false,
-		},
-		{
-			title: 'The Iliad',
-			author: 'Home',
-			alreadyRead: true,
-		},
-		{
-			title: 'The Life Changing Magic of Tidying Up',
-			author: 'Marie Kondo',
-			alreadyRead: true,
-		},
-		]
-
-
+			// Define array for use in problemset
+			let books = [
+			{
+				title: 'Chamber of Secrets',
+				author: 'J K Rowling',
+				alreadyRead: false,
+			},
+			{
+				title: 'Divergent',
+				author: 'Veronica Roth',
+				alreadyRead: false,
+			},
+			{
+				title: 'The Iliad',
+				author: 'Home',
+				alreadyRead: true,
+			},
+			{
+				title: 'The Life Changing Magic of Tidying Up',
+				author: 'Marie Kondo',
+				alreadyRead: true,
+			},
+			{
+				title: 'The Hobbit',
+				author: 'JRR Tolkein',
+				alreadyRead: false,
+			},
+			]
 
 		// Part 1
-
+		function listBooks (array){
+			for (i=0; i<array.length; i++) {
+				console.log(array[i].title+ ' by ' +array[i].author)
+			};
+		}
 
 		// Part 2
+		function listBooksStatus (array){
+			for (i=0; i<array.length; i++) {
+				if (array[i].alreadyRead) {
+					console.log('You have already read ' + array[i].title+ ' by ' +array[i].author);
+				} else {
+					console.log('You still need to read ' + array[i].title+ ' by ' +array[i].author);
+				}
+				
+			};
+		}
 
 	</script>
 
