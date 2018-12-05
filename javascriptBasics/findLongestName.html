@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Find the Longest Name
+	</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	// Find the longest name in an array of names using a for loop
+	let names = ['Sheng', 'Kevin', 'Audrey', 'KJ', 'Delilah', 'Josh', 'Mack', 'Rey', 'Finn', 'Master Chief'];
+	let longestName = '';			
+	// Loop through each name in the array
+
+
+	for (let i = 0; i < names.length; i++) {
+		let currentName = names[i];
+		// Compare each name with the longest name. If longer than the longest name, make new longest name
+		if (currentName.length > longestName.length) {
+			longestName = currentName;
+		}		
+	} 
+	console.log(longestName + " is the longest name.")
+	console.log("Longest name: " + longestName);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FizzBuzz Logic Challenge</title>
+</head>
+<body>
+
+	<h1> The FizzBuzz Logic Challenge </h1>
+
+	<button onclick="doFizzBuzz()"> Start Now </button>
+	<p id="result"> </p>
+
+	<script>
+	    function doFizzBuzz() {
+	        const num = prompt("Please enter a number:", "Number please");  // a prompt will appear to ask you input a number
+	        // Write your logic here
+	        if(num%3==0) {
+	        	document.write('Fizz')
+	        } if(num%5==0) {
+	        	document.write('Buzz')
+	        } else if (isNaN(num)) {
+	        	document.write('This is not a number. Start again with a number.')
+	        } else {
+	        	document.write(num)
+	        }
+	    }
+	</script>
+
+</body>
+</html>
