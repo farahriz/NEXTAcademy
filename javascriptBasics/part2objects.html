@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Type: Object - Excercises</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	// Using functions as properties
+		const personOne = {
+		    name: 'Rey',
+		    age: 30,
+		    hungry: true,
+		    greet: function(){
+		        console.log('Hi! I am ' + this.name)
+		    },
+		    eatFood: function eatFood (food){
+		    	if (this.hungry) {
+		    		console.log('I am hungry, ' + food + ' time');
+		    	} else {
+		    		console.log('I am not hungry, no ' + food + ' please');
+		    	}
+		    }
+		}
+
+
+	// PRACTICE: OBJECT
+
+		//Practice 1: dream trip 
+		const trip0 = {
+		  location: "New York City",
+		  travelPartners: ["Mum", "Dad", "Sis"],
+		  numDays: 14,
+		  places: ["Time Square", "Brooklyn Botanical Gardens", "Central Park"],
+		};
+
+		const trip1 = {
+		  location: "Chicago",
+		  travelPartners: ["Mum", "Dad", "Sis"],
+		  numDays: 7,
+		  places: ["Former Oprah Warehouse", "Deep Dish Pizza Place", "That Thing Everyone Hates"],
+		};
+
+		const trip2 = {
+		  location: "Machu Pichu",
+		  travelPartners: ["BFF", "BF", "Bro"],
+		  numDays: 21,
+		  places: ["Mountain", "Hill", "River", "Do it for the 'gram"],
+		}
+
+		function showTrip(trip){
+			console.log('My Dream Trip: ' + trip.location);
+
+			// Travel Partners
+			console.log('')
+			// console.log("with" + );
+
+			// Places to Visit
+			// console.log(" Place to Visit:");
+			// console.log("* "+)
+
+		}
+
+		function listMembers(array){
+			let string = '';
+			for (let i = 0; i < array.length-1; i++) {
+				string = string + array[i] + ", ";
+			}
+			string = string + "and " + array[array.length-1];		
+			console.log(string);
+		}
+
+		
+		//Practice 2: reading list 
+
+
+	</script>
+
+</body>
+</html>
