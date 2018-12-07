@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body>
+
+	<div class="container">
+		<h2>To Do List</h2>
+		<form>
+			<input class="entry" type="text" id="myInput" placeholder="Enter to do item here">
+			<span onclick="createTask()" id="addButton">SUBMIT</span>	
+		</form>
+		<ul>
+			<li>Feed the fish</li>
+			<li>Drink enough water</li>
+			<li>Kiss the cat goodnight</li>
+		</ul>
+	</div>
+
+
+	<script type="text/javascript">
+		// const button = ;
+
+		// let inputTask = 
+		let myForm = document.querySelector('form');
+
+
+		function logInput() {
+			return document.getElementById('myInput').value;
+		};
+
+		function createTask(){
+			if (logInput()==''){
+				window.alert('Brevity is the soul of wit, but I need you task to have text in it')
+			} else {
+				const newTask = document.createElement('li');
+				newTask.innerHTML = logInput();
+				const runningList = document.querySelector('ul');
+				runningList.appendChild(newTask);
+				document.getElementById('myInput').value='';
+			}
+		};
+
+		//Triggers button click on enter for sake of easy user experience 
+			// Does not trigger to correctly pass through info
+			// let inputBar = document.getElementById('myInput');
+
+			// inputBar.addEventListener("keyup", function(){
+			// 	event.preventDefault();
+			// 	if (event.keyCode===13){
+			// 		document.getElementById('addButton').click();
+			// 	}
+			// });
+		
+
+	
+
+
+	</script>
+
+</body>
+</html>

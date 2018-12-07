@@ -1,0 +1,36 @@
+body {
+	background: #e1eec3;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #f05053, #e1eec3);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: 'Calibri', sans-serif;
+}
+
+.container {
+	min-width: 400px;
+	width: 40%;
+	margin: auto;
+	padding: 20px;
+	background-color: white;
+}
+
+
+form {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.entry {
+	min-width: 300px;
+	width: 90%;
+}
+
+
+#addButton {
+	min-width: 50px;
+	border: 1px grey solid;
+	background: darkgrey;
+	color: white;
+	text-align: center;
+	font-size: 0.8em;
+}
