@@ -1,0 +1,23 @@
+.big {
+	font-size: 40px
+}
+
+.random {
+	color: pink;
+}
+
+.boxy {
+	border: 1px solid black;
+}
+
+.foxy {
+	background-color: orange;
+}
+
+.wolf {
+	text-transform: uppercase;
+}
+
+.flash {
+	border: 5px dashed yellow;
+}

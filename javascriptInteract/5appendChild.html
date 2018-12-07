@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>appendChild</title>
+	<link rel="stylesheet" type="text/css" href="manipclass.css">
+</head>
+<body>
+	<header>
+	    <h1> Hi there. </h1>
+	    <p> This is para 1 </p>
+	<header>
+
+	
+	<script type="text/javascript">
+		function addPara(){
+			const myHeader = document.querySelector('header');
+			const newPara = document.createElement('p');
+			newPara.innerHTML = "I am a new para.";
+			myHeader.appendChild(newPara);
+		};
+
+		function addSection(){
+			const mySection = document.createElement('section');
+			const myHeader = document.querySelector('header');
+			myHeader.after(mySection);
+
+		};
+
+		function addSubheader(){
+			const mySection = document.querySelector('section');
+			const newSubheader = document.createElement('h2');
+			newSubheader.innerHTML = "Coding Journey";
+			mySection.appendChild(newSubheader);
+		};
+		
+		function addCaption(){
+			const mySection = document.querySelector('section');
+			const newCaption = document.createElement('p');
+			newCaption.innerHTML = "It has been fun!";
+			mySection.appendChild(newCaption);
+		};
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manipulating Classes</title>
+	<link rel="stylesheet" type="text/css" href="manipclass.css">
+</head>
+<body>
+	<header>
+	    <h1> Hi there. </h1>
+	    <p> This is a caption. </p>
+	</header>
+
+	<p class="big"> I am a random text. </p>
+
+	
+	<script type="text/javascript">
+		function addRandom(){
+			const targetPara = document.getElementsByTagName("P")[1];
+			targetPara.classList.add('random');
+		}
+
+		function addFlash(){
+			const targetPara = document.getElementsByTagName("P")[1];
+			targetPara.classList.add('flash');
+		}
+
+		function addMany(){
+			const targetPara = document.getElementsByTagName("P")[1];
+			targetPara.classList.add('boxy', 'foxy', 'wolf');
+		}
+
+		function removeBig(){
+			const targetPara = document.getElementsByTagName("P")[1];
+			targetPara.classList.remove('big');
+		}
+
+
+		function removeBigFlash(){
+			const targetPara = document.getElementsByTagName("P")[1];
+			targetPara.classList.remove('big', 'flash');
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manipulating Style</title>
+
+</head>
+<body>
+	<header>
+	    <h1> Hi there. </h1>
+	    <p> This is paragraph 1 in blue. </p>
+	</header>
+
+	<p> This is paragraph 2 in pink. </p>
+
+	<p>This is some other stuff on the page.</p>
+	
+	<script type="text/javascript">
+		function manipStyles(){
+			const myHead = document.querySelector('header');
+			// console.log(myHead.style);
+			myHead.style.backgroundColor='yellow';
+			myHead.style.paddingBottom='30px';
+
+			const myH1 = document.querySelector('h1');
+			myH1.style.fontSize='90px';
+
+			const myFirstPara = document.querySelector('header p');
+			myFirstPara.style.color='blue';
+
+			const mySecondPara = document.getElementsByTagName("P")[1];
+			mySecondPara.style.color='pink';
+		
+		}
+	</script>
+</body>
+</html>
