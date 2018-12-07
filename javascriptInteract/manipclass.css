@@ -21,3 +21,17 @@
 .flash {
 	border: 5px dashed yellow;
 }
+
+button {
+	width: 400px;
+	height: 200px;
+	font-size: 3em;
+	color: white;
+	background-color: grey;
+	position: fixed;
+	border:10px solid white;
+}
+
+.mouseovered {
+	color: black;
+}

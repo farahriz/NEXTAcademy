@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Handler</title>
+	<link rel="stylesheet" type="text/css" href="manipclass.css">
+</head>
+<body>
+	<button>
+		Click Me!!
+	</button>
+
+	
+	<script type="text/javascript">
+		function randomColor() {
+			const r = Math.floor(Math.random()*255);
+			const g = Math.floor(Math.random()*255);
+			const b = Math.floor(Math.random()*255);
+			return 'rgb(' + r + ',' + g + ',' + b + ')';
+		}
+
+		const button = document.querySelector('button');
+		let clickCounter = 0
+		button.onclick = function(){
+			clickCounter++;
+			console.log(clickCounter);
+			window.alert("I am clicked!");
+			button.style.backgroundColor=randomColor();
+		};
+
+		button.onmouseover = function(){
+			button.classList.add('mouseovered');
+		};
+
+		button.onmouseout = function(){
+			button.classList.remove('mouseovered')
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Handler</title>
+	<link rel="stylesheet" type="text/css" href="manipclass.css">
+</head>
+<body style="background: #5D4157;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A8CABA, #5D4157);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A8CABA, #5D4157); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+	<button id="runaway" onclick="location.href = 'https://www.google.com';">
+		Click Me!!
+	</button>
+	
+	<script type="text/javascript">
+		function randomColor() {
+			const r = Math.floor(Math.random()*255);
+			const g = Math.floor(Math.random()*255);
+			const b = Math.floor(Math.random()*255);
+			return 'rgb(' + r + ',' + g + ',' + b + ')';
+		}
+
+		function randomPositionX(){
+			const x = Math.floor(Math.random()*window.screen.width)-400;
+			return x +'px';
+		}
+
+		function randomPositionY(){
+			const y = Math.floor(Math.random()*window.screen.height)-200;
+			return y+'px';
+		}
+
+		const button = document.querySelector('button');
+		let clickCounter = 0
+
+		button.onmouseover = function(){
+			clickCounter++;
+			button.style.backgroundColor=randomColor();	
+			console.log(clickCounter);
+			if (clickCounter==10){
+				window.alert("Fine. I guess I'll let you click me... But it's not because I like you or anything!")
+			} else if (clickCounter<10){
+				// randomise position
+				// window.alert("Baka! Go away!");
+				button.style.top=randomPositionY();
+				button.style.left=randomPositionX();
+			} else {
+
+			}
+		};
+
+
+	</script>
+</body>
+</html>
