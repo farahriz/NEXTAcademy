@@ -1,7 +1,8 @@
 // VARIABLES FOR GAME LOGIC
-const wordToGuess = 'potato';
-const wordState = [undefined, undefined, undefined, undefined, undefined, undefined]
-let guessesLeft = 10;
+let wordToGuess = 'potato';
+const vegetableArray = ['potato', 'tomato', 'celery', 'turnip', 'cabbage', 'lettuce', 'onion', 'spinach']
+const wordState = []
+let guessesLeft = 6;
 const prevGuesses = [ ];
 
 // HTML ELEMENTS
@@ -14,6 +15,23 @@ const winLoseMessage = document.getElementById('victory-banner')
 const myTrap = document.querySelector('.trap')
 
 // FUNCTIONS
+
+	//Set Up
+		function generateRandomWord(){
+			wordToGuess = vegetableArray[(Math.floor(Math.random()*vegetableArray.length))]
+		}
+
+		function setWordState(){
+			for (let i = 0; i<wordToGuess.length; i++){
+				wordState.push(undefined)
+			}
+			displayWordState(wordState);
+		}
+
+		generateRandomWord();
+		setWordState();
+		livesLeft.innerHTML = guessesLeft
+
 
 submitForm.onsubmit = function(event){
 	event.preventDefault();
@@ -36,8 +54,6 @@ function displayWordState(state) {
 	// replace HTML for game in progress
 	wordInProgress.innerHTML = output;
 }
-
-displayWordState(wordState)
 
 
 //Victory Condition
