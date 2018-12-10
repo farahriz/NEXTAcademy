@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="confetti.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="trap">
+			<div class="container">
+				<h1>Word Guessing Game</h1>
+
+				<h2>Your Game In Progress</h2>
+				<!-- Banana -->
+				<p id="word">_ _ _ _ _ _ </p>
+
+				<h2>Letters guessed</h2>
+				<div class="guessing-zone">
+					<ul id="past-guesses">
+					</ul>
+				</div>	
+
+				<h2>Status</h2>
+
+					<p>You have <span id='lives-left'>10</span> guesses left</p>
+					<p id="victory-banner" class="hidden">You Won!</p>
+					<form id='submission'>
+						<input type="text" name="value" placeholder="Insert your guess here" id="my-input" maxlength="1">
+						<input type="submit">
+					</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="hangman.js"></script>
+
+<!-- Bonus Confetti solution -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="confetti.js"></script>
+</body>
+</html>

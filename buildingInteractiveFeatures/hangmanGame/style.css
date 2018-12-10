@@ -1,0 +1,49 @@
+body {
+	text-align: center;
+	font-family: 'Courier', monospace;
+	margin: 0;
+	overflow: hidden;
+	vertical-align: center;
+
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size: 1.3em;
+}
+
+.trap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*border: 1px solid black;*/
+	height: 100vh;
+	width: 100%;
+}
+
+.container {
+	width: 80%;
+
+}
+
+.hidden {
+	display: none;
+}
+
+#word {
+	font-size: 32px;
+	letter-spacing: 18px;
+}
+
+#past-guesses {
+	/*display: inline;*/
+}
+
+.guessing-zone ul li {
+	display: inline;
+	letter-spacing: 12px;
+}
