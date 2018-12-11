@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac To</title>
+	<link rel="stylesheet" type="text/css" href="tictac.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+</head>
+<body>
+	<h1>Play a Game of Tic Tac Toe</h1>
+
+	<div class="playing-field">
+		<table>
+			<tr>
+				<td class="column1 row1" id="a1"></td>
+				<td class="column2 row1" id="a2"></td>
+				<td class="column3 row1" id="a3"></td>
+			</tr>
+			<tr>
+				<td class="column1 row2" id="b1"></td>
+				<td class="column2 row2" id="b2"></td>
+				<td class="column3 row2" id="b3"></td>
+			</tr>
+			<tr>
+				<td class="column1 row3" id="c1"></td>
+				<td class="column2 row3" id="c2"></td>
+				<td class="column3 row3" id="c3"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="scorekeeper">
+		<div>Player 1: <span id="player1-score">0</span> </div>
+		<div>Ties: <span id="tie-score">0</span> </div>	
+		<div>Player 2: <span id="player2-score">0</span> </div>
+	</div>
+
+	<div class="controls">
+		<div>
+			<button id='soft-reset'>Play another round</button>
+			<button id='hard-reset'>Reset everything</button>
+		</div>
+
+
+	</div>
+
+
+	<script type="text/javascript" src="tictac.js"></script>
+</body>
+</html>
