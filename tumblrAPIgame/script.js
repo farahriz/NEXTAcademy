@@ -18,12 +18,9 @@
 
 //GENERAL USE
 const list = document.getElementById('list-data')
-
+const apiKey = 'JRUdMeWbOkwT5RUzer08CDFjG0BbYBdkSL3ULg6Iq1Ka57v0N3'
 
 //FOR GAME
-
-
-	//game set up
 	const wordpool = ['hills', 'forest', 'lake','beach','mountain', 'pirates','ocean','river','oasis','scenery','landscape','sunrise','sunset','rain','snow','winter','autumn','rainforest','castle','sky','cottage','snowing']
 	const button1 = document.getElementById('but1');
 	const button2 = document.getElementById('but2');
@@ -35,13 +32,7 @@ const list = document.getElementById('list-data')
 	const multipleChoice = [];
 	let answerWord;	
 
-answerZone.addEventListener('click', winLogic,false)
-
-function testCase(event){
-	console.log(event.target.id);
-}
-
-
+	answerZone.addEventListener('click', winLogic,false)
 
 // GAMEPLAY FLOW
 setupGame()
@@ -87,7 +78,6 @@ function setupGame(){
 }
 
 
-//Win logic
 function winLogic(){
 	//If the user clicks the right answer
 	if(event.target.classList.contains('answer')){
@@ -99,11 +89,8 @@ function winLogic(){
 	}	
 }
 
-
-
-//
 function getTaggedPhotos(tagName){
-	fetch('https://api.tumblr.com/v2/tagged?tag='+ tagName +'&api_key=JRUdMeWbOkwT5RUzer08CDFjG0BbYBdkSL3ULg6Iq1Ka57v0N3')
+	fetch('https://api.tumblr.com/v2/tagged?tag='+ tagName +'&api_key='+apiKey)
 			.then(function(response){
 				return response.json();
 				console.log(response);
@@ -145,49 +132,4 @@ function getTaggedPhotos(tagName){
 					console.log('message:', err)
 				})
 }
-
-	// function getTaggedPhotos(tagName){
-	// 	fetch('https://api.tumblr.com/v2/tagged?tag='+ tagName +'&api_key=JRUdMeWbOkwT5RUzer08CDFjG0BbYBdkSL3ULg6Iq1Ka57v0N3')
-	// 			.then(function(response){
-	// 				console.log(response);
-
-	// 				// if(!response.ok){
-	// 				// 	window.alert('Hey, seems like something went wrong, please contact the site owner')
-	// 				// 	return
-	// 				// }	
-	// 			}).then(function(result){
-	// 				console.log(result);
-
-	// 				const items = result.response;
-				
-	// 				for(let i = 0; i<items.length; i++){
-	// 					const item = items[i];
-
-
-	// 					if(item.photos != undefined){
-	// 						const altSizes = item.photos[0].alt_sizes
-	// 						// const imgSrc = item.photos[0].original_size.url;
-	// 						const imgSrc = altSizes[altSizes.length-2].url
-
-
-	// 						const img = document.createElement('img')
-	// 						img.src = imgSrc;
-
-	// 						const li = document.createElement('li');
-							
-	// 						// li.innerHTML=imgSrc;
-	// 						list.appendChild(li);
-	// 						li.appendChild(img);
-
-	// 					}
-
-	// 				}
-	// 			})
-	// 			.catch(function(err){
-	// 				window.alert('Hey, seems like the Tumblr API is down, please try again later')
-	// 				console.log('message:', err)
-	// 			})
-	// }
-
-
 	
