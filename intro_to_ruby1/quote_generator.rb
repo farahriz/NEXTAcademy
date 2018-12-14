@@ -1,0 +1,2 @@
+quotes = ['a steady sea never raised strong sailors', "there's no dawn that doesn't break", 'even monkeys fall from trees', 'the nail that sticks up gets hammered down', 'borrow arrows with straw boats']
+p quotes.sample(1)
