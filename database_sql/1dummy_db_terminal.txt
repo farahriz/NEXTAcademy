@@ -1,0 +1,107 @@
+Last login: Sun Dec 23 16:11:52 on []
+MyComputer:SQL farah$ sqlite3 dummy.db
+SQLite version 3.19.3 2017-06-27 16:48:08
+Enter ".help" for usage hints.
+sqlite> CREATE TABLE users (
+   ...>   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>   first_name VARCHAR(64) NOT NULL,
+   ...>   last_name VARCHAR(64) NOT NULL,
+   ...>   email VARCHAR(128) UNIQUE NOT NULL,
+   ...>   created_at DATETIME NOT NULL,
+   ...>   updated_at DATETIME NOT NULL
+   ...> );
+sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Joshua', 'Teng', 'jedicoder@example.com', DATETIME('now'), DATETIME('now'));
+sqlite> SELECT * FROM users;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54
+sqlite> SELECT * FROM users
+   ...> ;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54
+sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Joshua', 'Teng', 'jedicoder@example.com', DATETIME('now'), DATETIME('now'));
+Error: UNIQUE constraint failed: users.email
+sqlite> ('Joshua', 'Teng', 'padawancoder@example.com', DATETIME('now'), DATETIME('now'));
+Error: near "(": syntax error
+sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Joshua', 'Teng', 'padawancoder@example.com', DATETIME('now'), DATETIME('now'));
+sqlite> SELECT * FROM users                                                        ...> ;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54
+2|Joshua|Teng|padawancoder@example.com|2018-12-23 10:08:43|2018-12-23 10:08:43
+sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Anakin', 'Skywalker', 'jedi@jedi.com', DATETIME('now'), DATETIME('now'));
+sqlite> SELECT * FROM users
+   ...> ;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54
+2|Joshua|Teng|padawancoder@example.com|2018-12-23 10:08:43|2018-12-23 10:08:43
+3|Anakin|Skywalker|jedi@jedi.com|2018-12-23 10:09:58|2018-12-23 10:09:58
+sqlite> ALTER TABLE users
+   ...> ;
+Error: near ";": syntax error
+sqlite> .schema
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name VARCHAR(64) NOT NULL,
+  last_name VARCHAR(64) NOT NULL,
+  email VARCHAR(128) UNIQUE NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL
+);
+CREATE TABLE sqlite_sequence(name,seq);
+sqlite> ALTER TABLE
+   ...> ADD nickname VARCHAR(64) NOT NULL;
+Error: near "ADD": syntax error
+sqlite> ALTER TABLE
+   ...> ADD nickname varchar(64) NOT NULL;
+Error: near "ADD": syntax error
+sqlite> ALTER TABLE users
+   ...> ADD nickname VARCHAR(64) NOT NULL;
+Error: Cannot add a NOT NULL column with default value NULL
+sqlite> ALTER TABLE users
+   ...> ADD Nickname VARCHAR(64) NOT NULL;
+Error: Cannot add a NOT NULL column with default value NULL
+sqlite> ADD Nickname VARCHAR(64);
+Error: near "ADD": syntax error
+sqlite> ALTER TABLE users
+   ...> ADD Nickname VARCHAR(64);
+sqlite> .schema
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name VARCHAR(64) NOT NULL,
+  last_name VARCHAR(64) NOT NULL,
+  email VARCHAR(128) UNIQUE NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL
+, Nickname VARCHAR(64));
+CREATE TABLE sqlite_sequence(name,seq);
+sqlite> ALTER TABLE users
+   ...> MODIFY COLUMN Nickname NOT NULL;
+Error: near "MODIFY": syntax error
+sqlite> UPDATE Users
+   ...> SET nickname = 'Pookie Butt' WHERE ID = 1;
+sqlite> SELECT * FROM users
+   ...> ;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54|Pookie Butt
+2|Joshua|Teng|padawancoder@example.com|2018-12-23 10:08:43|2018-12-23 10:08:43|
+3|Anakin|Skywalker|jedi@jedi.com|2018-12-23 10:09:58|2018-12-23 10:09:58|
+sqlite> ALTER TABLE users SET nickname = 'Jedi Coder' WHERE ID =1;
+Error: near "SET": syntax error
+sqlite> UPDATE Users SET nickname = 'Jedi Coder' WHERE ID = 1;
+sqlite> SELECT * FROM users;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54|Jedi Coder
+2|Joshua|Teng|padawancoder@example.com|2018-12-23 10:08:43|2018-12-23 10:08:43|
+3|Anakin|Skywalker|jedi@jedi.com|2018-12-23 10:09:58|2018-12-23 10:09:58|
+sqlite> UPDATE Users SET nickname = 'Ani' WHERE ID = 3;
+sqlite> UPDATE Users SET nickname = 'The Boss Man' WHERE ID = 2;
+sqlite> SELECT * FROM users;
+1|Joshua|Teng|jedicoder@example.com|2018-12-23 10:06:54|2018-12-23 10:06:54|Jedi Coder
+2|Joshua|Teng|padawancoder@example.com|2018-12-23 10:08:43|2018-12-23 10:08:43|The Boss Man
+3|Anakin|Skywalker|jedi@jedi.com|2018-12-23 10:09:58|2018-12-23 10:09:58|Ani
+sqlite> 
