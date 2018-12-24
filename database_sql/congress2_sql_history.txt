@@ -1,0 +1,124 @@
+INSERT INTO voters
+(first_name, last_name, gender, party, party_duration, age, married, children_count, homeowner, employed, created_at, updated_at)
+VALUES
+('Keenan', 'Crier', 'male', 'na', 2, 22, 0, 0,0,1, DATETIME('now'), DATETIME('now'));
+INSERT INTO voters
+(first_name, last_name, gender, party, party_duration, age, married, children_count, homeowner, employed, created_at, updated_at)
+VALUES
+('Maria', 'Grimm', 'female', 'democrat', 34, 69, 1, 3, 1, 0, DATETIME('now'), DATETIME('now'));
+INSERT INTO votes
+(voter_id, politician_id, created_at, updated_at)
+VALUES
+(5001, 145, DATETIME('now'), DATETIME('now'));
+INSERT INTO votes
+(voter_id, politician_id, created_at, updated_at)
+VALUES
+(5002, 449, DATETIME('now'), DATETIME('now'));
+INSERT INTO congress_members
+(name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, created_at, updated_at)
+VALUES
+('Sen. Donald Trump', 'R', 'NJ', 8.452123, 10.54351, 1, -0.241, DATETIME('now'), DATETIME('now'));
+DELETE
+FROM congress_members
+WHERE id = 102
+;
+UPDATE votes
+SET politician_id = 531
+WHERE politician_id = 102;
+DELETE
+FROM voters
+WHERE id IN(
+SELECT voter_id
+FROM voters JOIN votes ON (voters.id = voter_id)
+WHERE party NOT IN ('republican', 'democrat')
+GROUP BY voter_id
+HAVING COUNT(voter_id)=1
+)
+;
+SELECT COUNT(voters.id) FROM voters;
+DELETE
+FROM voters
+WHERE id IN(
+SELECT voters.id
+FROM votes JOIN voters ON (votes.voter_id = voters.id)
+WHERE voters.id IN (
+SELECT voters.id
+FROM voters
+WHERE homeowner = 1 
+AND employed = 1 
+AND children_count = 0 
+AND party_duration < 3
+)
+AND politician_id IN (
+SELECT congress_members.id FROM congress_members
+WHERE grade_current > 12)
+GROUP BY voters.id);
+SELECT COUNT(id) FROM voters;
+DELETE
+FROM votes
+WHERE voter_id IN(
+SELECT voters.id
+FROM votes JOIN voters ON (votes.voter_id = voters.id)
+WHERE voters.id IN (
+SELECT voters.id
+FROM voters
+WHERE homeowner = 1 
+AND employed = 1 
+AND children_count = 0 
+AND party_duration < 3
+)
+AND politician_id IN (
+SELECT congress_members.id FROM congress_members
+WHERE grade_current > 12)
+GROUP BY voters.id);
+SELECT COUNT(id) FROM votes;
+SELECT id
+FROM votes
+WHERE votes.voter_id NOT IN(SELECT voters.id FROM voters);
+DELETE
+FROM votes
+WHERE votes.voter_id IN(196, 1455, 2038, 3004, 4210)
+;
+SELECT COUNT(id) FROM votes;
+UPDATE votes
+SET politician_id = 346
+WHERE voter_id IN (
+SELECT voters.id
+FROM votes JOIN voters ON (votes.voter_id = voters.id)
+WHERE voters.id IN (
+SELECT voters.id
+FROM voters
+WHERE homeowner = 1 
+AND employed = 1 
+AND children_count = 0 
+AND party_duration < 3
+)
+AND politician_id IN (
+SELECT congress_members.id FROM congress_members
+WHERE grade_current > 12)
+GROUP BY voters.id);
+SELECT COUNT(id) FROM votes WHERE politician_id = 346
+;
+UPDATE votes
+SET politician_id = 346
+WHERE voter_id IN (
+SELECT voter_id
+FROM votes JOIN voters ON (votes.voter_id = voters.id)
+WHERE gender = 'male' AND age > 80 AND children_count = 0);
+SELECT COUNT(id) FROM votes WHERE politician_id = 346;
+UPDATE votes
+SET politician_id = (
+SELECT id FROM congress_members 
+WHERE grade_1996 = (
+SELECT MIN(grade_1996)
+FROM congress_members)
+)
+WHERE politician_id = (
+SELECT id FROM congress_members 
+WHERE grade_1996 = (
+SELECT MAX(grade_1996)
+FROM congress_members)
+)
+;
+SELECT COUNT(politician_id) FROM votes WHERE politician_id = 530;
+SELECT COUNT(politician_id) FROM votes WHERE politician_id = 1;
