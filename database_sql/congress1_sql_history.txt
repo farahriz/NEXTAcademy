@@ -1,0 +1,89 @@
+SELECT name FROM pragma_database_list;
+-- PRAGMA database_list;
+SELECT sql FROM(SELECT sql, type, tbl_name, name, rowid, 1 AS snum, 'main' AS sname FROM sqlite_master) WHERE type!='meta' AND sql IS NOT NULL ORDER BY snum, rowid;
+SELECT COUNT(id) FROM votes WHERE politician_id=524
+;
+SELECT COUNT(voter_id)
+FROM votes JOIN congress_members ON (votes.politician_id = congress_members.id AND congress_members.name = 'Sen. Olympia Snowe');
+SELECT COUNT(voter_id)
+FROM votes JOIN congress_members ON (votes.politician_id = congress_members.id AND congress_members.name = 'Rep. Erik Paulsen');
+CREATE TABLE politicians_by_votes AS SELECT congress_members.id, name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, COUNT(voter_id) AS Votes
+FROM congress_members JOIN votes ON (congress_members.id = votes.politician_id)
+GROUP BY name
+ORDER BY Votes DESC;
+SELECT name FROM pragma_database_list;
+-- PRAGMA database_list;
+SELECT sql FROM(SELECT sql, type, tbl_name, name, rowid, 1 AS snum, 'main' AS sname FROM sqlite_master) WHERE type!='meta' AND sql IS NOT NULL ORDER BY snum, rowid;
+SELECT * FROM politicians_by_votes;
+SELECT name FROM pragma_database_list;
+-- PRAGMA database_list;
+SELECT sql FROM(SELECT sql, type, tbl_name, name, rowid, 1 AS snum, 'main' AS sname FROM sqlite_master) WHERE type!='meta' AND sql IS NOT NULL ORDER BY snum, rowid;
+CREATE TABLE politicians_by_votes_asc AS SELECT congress_members.id, name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, COUNT(voter_id) AS total_votes
+FROM congress_members JOIN votes ON (congress_members.id = votes.politician_id)
+GROUP BY name
+ORDER BY total_votes ASC;
+SELECT * FROM politicians_by_votes_asc;
+SELECT MAX(total_votes) FROM politicians_by_votes_asc;
+SELECT name FROM pragma_database_list;
+-- PRAGMA database_list;
+SELECT sql FROM(SELECT sql, type, tbl_name, name, rowid, 1 AS snum, 'main' AS sname FROM sqlite_master) WHERE type!='meta' AND sql IS NOT NULL ORDER BY snum, rowid;
+SELECT "congress_members.id", MAX(total_votes) FROM politicians_by_votes_asc;
+SELECT "congress_members.id", name, party, MAX(total_votes) FROM politicians_by_votes_asc;
+SELECT voter_id, first_name, last_name, politician_id
+FROM votes JOIN voters ON (voters.id = votes.voter_id)
+WHERE politician_id = 224;
+SELECT voter_id, first_name, last_name, gender, party, COUNT(politician_id)
+FROM votes JOIN voters ON (voters.id = votes.voter_id)
+WHERE politician_id = 224
+GROUP BY voter_id;
+SELECT politician_id, congress_members.name, congress_members.location, congress_members.grade_1996, COUNT(voter_id)
+FROM congress_members JOIN votes ON (congress_members.id = politician_id)
+WHERE grade_current < 9
+GROUP BY politician_id;
+SELECT location, COUNT(location) FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (congress_members.id = votes.politician_id)
+GROUP BY location;
+SELECT location, COUNT(location) FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (congress_members.id = votes.politician_id)
+GROUP BY location
+ORDER BY COUNT(location);
+SELECT location, COUNT(location) FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (congress_members.id = votes.politician_id)
+GROUP BY location
+ORDER BY COUNT(location)
+DESC
+LIMIT 10;
+SELECT first_name, last_name, location
+FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (congress_members.id = votes.politician_id)
+WHERE location = 'CA'
+;
+SELECT first_name, last_name, COUNT(voter_id)
+FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (congress_members.id = votes.politician_id)
+GROUP BY voter_id
+HAVING COUNT(voter_id) > 2
+;
+SELECT voters.id first_name, last_name, congress_members.name
+FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (votes.politician_id = congress_members.id)
+GROUP BY voter_id, politician_id;
+SELECT voters.id, first_name, last_name, congress_members.name, COUNT(congress_members.name)
+FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (votes.politician_id = congress_members.id)
+GROUP BY voter_id, politician_id
+HAVING COUNT(politician_id)>1
+;
+SELECT voters.id, first_name, last_name, congress_members.name, COUNT(congress_members.name)
+FROM
+votes JOIN voters ON (votes.voter_id = voters.id)
+JOIN congress_members ON (votes.politician_id = congress_members.id)
+GROUP BY voter_id, politician_id
+HAVING COUNT(politician_id)=2;
